@@ -50,10 +50,15 @@ export const getImageFormSyles =
         top: "130px",
         margin: "50px 20px",
     },
-    form: {
-        width: "40vw",
+    formsDiv: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "row"
+    },
+    form: {
+        width: "50%",
+        display: "flex",
+        flexDirection: "column",
+        padding: "20px 80px 20px 20px"
     },
     formDiv: {
         display: "flex",
@@ -78,5 +83,25 @@ export const getImageFormSyles =
         img: {
             width: "inherit",
         }
+    }
+}
+
+export const RoverMissionStyles =
+{
+    main: {
+        width: "50%",
+        padding: "20px"
+    },
+    formDiv: {
+        width: "60%",
+        display: "flex",
+        justifyContent: "space-between",
+        margin: "5px"
+    },
+    mission: {
+        margin: "20px 20px"
+    },
+    li: {
+        margin: "5px 0px 5px 20px"
     }
 }
