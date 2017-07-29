@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import PageLayout from './PageLayou.js'
+import GetImageForm from './GetImageForm.js';
 
 export default class App extends Component {
   render() {
     return (
       <div className='App'>
-          <h1>You're good to go! Now fix the internet...</h1>
+          <PageLayout>
+              <GetImageForm />
+          <PageLayout />
       </div>
-    );
+    )
   }
 }
