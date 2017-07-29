@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {getImageFormSyles} from '../styles/inlineStyles.js'
 import GetImageButton from './GetImageButton.js';
 import ImageDisplay from './ImageDisplay.js';
 //====================================
@@ -17,8 +18,8 @@ export default class GetImageForm extends Component {
         this.state = {
             rover: "Curiosity",
             camera: "FHAZ",
-            images: [],
             sol: 1000,
+            images: []
         }
 
     }
@@ -56,26 +57,34 @@ export default class GetImageForm extends Component {
     }
 
     render() {
+        const styles = getImageFormSyles
+
         return(
-            <div>
-                <form>
-                    <label htmlFor="rover">Rover</label>
-                    <select onChange={this.handleRover} id="rover" value={this.state.value}>
-                      <option value="Curiosity">Curiosity</option>
-                      <option value="Opportunity">Opportunity</option>
-                      <option value="Spirit">Spirt</option>
-                    </select>
-                    <label htmlFor="camera">Camera Type</label>
-                    <select onChange={this.handleCamera} id="rover" value={this.state.value}>
-                      <option value="fhaz">FHAZ (Front Hazard)</option>
-                      <option value="rhaz">RHAZ (Rear Hazard)</option>
-                      <option value="navcam">NAVCAM (Navigation Cam)</option>
-                    </select>
-                    <label htmlFor="sol">Martian Sol: 1000-2000</label>
-                    <input type="number" onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
-                    <GetImageButton submit={this.fetchRoverImage}/>
-                    <ImageDisplay images={this.state.images} />
+            <div style={styles.div} className="form-and-pictures">
+                <form style={styles.form}>
+                    <div style={styles.formDiv} id="form-rover-select">
+                        <label htmlFor="rover">Rover</label>
+                        <select onChange={this.handleRover} id="rover" value={this.state.value}>
+                          <option value="Curiosity">Curiosity</option>
+                          <option value="Opportunity">Opportunity</option>
+                          <option value="Spirit">Spirit</option>
+                        </select>
+                    </div>
+                    <div style={styles.formDiv} id="form-camera-select">
+                        <label htmlFor="camera">Camera Type</label>
+                        <select onChange={this.handleCamera} id="rover" value={this.state.value}>
+                          <option value="fhaz">FHAZ (Front Hazard)</option>
+                          <option value="rhaz">RHAZ (Rear Hazard)</option>
+                          <option value="navcam">NAVCAM (Navigation Cam)</option>
+                        </select>
+                    </div>
+                    <div style={styles.formDiv} >
+                        <label htmlFor="sol">Martian Sol: 1000-2000</label>
+                        <input style={styles.input} type="number" onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
+                    </div>
+                    <GetImageButton submit={this.fetchRoverImage} buttonStyles={styles.button}/>
                 </form>
+                <ImageDisplay images={this.state.images} displayStyles={styles.imageDisplay}/>
             </div>
         )
     }
